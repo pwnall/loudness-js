@@ -68,6 +68,4 @@ class ListenClass
       if db > -7
         hit = true
 
-chrome.power.requestKeepAwake 'system'
 window.Listen = new ListenClass()
-

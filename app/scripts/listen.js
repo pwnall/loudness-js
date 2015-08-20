@@ -83,8 +83,6 @@
 
   })();
 
-  chrome.power.requestKeepAwake('system');
-
   window.Listen = new ListenClass();
 
 }).call(this);
