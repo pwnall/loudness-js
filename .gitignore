@@ -1,0 +1,17 @@
+node_modules
+temp
+.tmp
+dist
+package
+.sass-cache
+app/bower_components
+test/bower_components
+
+# Local configuration.
+config.plist
+
+# OSX.
+.DS_Store
+
+# Vim.
+*.sw*

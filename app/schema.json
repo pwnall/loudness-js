@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "properties": {
+    "Server": {
+      "type": "string",
+      "name": "Server URL",
+      "description": "the data collection server's URL"
+    },
+    "BoardSerial": {
+      "type": "string",
+      "name": "Board Serial",
+      "description": "the board serial number reported to the server"
+    }
+  }
+}

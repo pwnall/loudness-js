@@ -1,0 +1,43 @@
+{
+    "name": "__MSG_appName__",
+    "description": "__MSG_appDescription__",
+    "version": "2",
+    "manifest_version": 2,
+    "default_locale": "en",
+    "kiosk_enabled": true,
+    "storage": {
+        "managed_schema": "schema.json"
+    },
+    "permissions": [
+        "appview",
+        "app.window",
+        "audioCapture",
+        {
+            "fileSystem": [
+                "write",
+                "retainEntries",
+                "directory"
+            ]
+        },
+        "geolocation",
+        "power",
+        "storage",
+        "videoCapture"
+    ],
+    "icons": {
+        "16": "images/icon-16.png",
+        "128": "images/icon-128.png"
+    },
+    "app": {
+        "background": {
+            "scripts": [
+                "scripts/config.js",
+                "scripts/client.js",
+                "scripts/listen.js",
+                "scripts/loudness.js",
+                "scripts/main.js",
+                "scripts/chromereload.js"
+            ]
+        }
+    }
+}
