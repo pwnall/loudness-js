@@ -1,3 +1,5 @@
+'use strict';
+
 class ClientClass
   constructor: ->
     @_serverUrl = null

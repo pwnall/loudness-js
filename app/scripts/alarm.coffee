@@ -1,3 +1,5 @@
+'use strict';
+
 # Sets a dummy alarm to prevent Chrome from deactivating our app.
 class AlarmClass
   constructor: ->

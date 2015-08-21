@@ -1,3 +1,5 @@
+'use strict';
+
 class ConfigClass
   constructor: ->
     @ready = new Promise (resolve, reject) =>

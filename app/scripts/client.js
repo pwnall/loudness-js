@@ -1,4 +1,5 @@
 (function() {
+  'use strict';
   var ClientClass;
 
   ClientClass = (function() {
