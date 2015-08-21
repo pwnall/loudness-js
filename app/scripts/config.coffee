@@ -26,18 +26,21 @@ class ConfigClass
     chrome.storage.managed.get ['Server', 'BoardSerial'], (results) =>
       @boardSerial = results.BoardSerial
       @server = results.Server
-      chrome.storage.local.get 'boardIdentity', (results) =>
-        identity = results.boardIdentity || {}
-        if identity.server is @server
-          @boardKey = identity.key
-        else
-          @boardKey = null
+      chrome.storage.local.get ['boardIdentity', 'BoardSerial', 'Server'],
+          (results) =>
+            @boardSerial ||= results.BoardSerial
+            @server ||= results.Server
+            identity = results.boardIdentity || {}
+            if identity.server is @server
+              @boardKey = identity.key
+            else
+              @boardKey = null
 
-        unless @_resolveReady is null
-          @_resolveReady true
-          @_resolveReady = null
-          @_rejectReady = null
-        return
+            unless @_resolveReady is null
+              @_resolveReady true
+              @_resolveReady = null
+              @_rejectReady = null
+            return
       return
     return
 

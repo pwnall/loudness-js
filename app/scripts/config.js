@@ -38,8 +38,10 @@
         return function(results) {
           _this.boardSerial = results.BoardSerial;
           _this.server = results.Server;
-          chrome.storage.local.get('boardIdentity', function(results) {
+          chrome.storage.local.get(['boardIdentity', 'BoardSerial', 'Server'], function(results) {
             var identity;
+            _this.boardSerial || (_this.boardSerial = results.BoardSerial);
+            _this.server || (_this.server = results.Server);
             identity = results.boardIdentity || {};
             if (identity.server === _this.server) {
               _this.boardKey = identity.key;

@@ -51,33 +51,7 @@
       }
     };
 
-    ListenClass.prototype.onSamples = function(event) {
-      var channelCount, db, hit, i, inputBuffer, j, powerSum, sampleCount, sampleRate, samples, sum, _i, _j, _results;
-      inputBuffer = event.inputBuffer;
-      channelCount = inputBuffer.numberOfChannels;
-      sampleCount = inputBuffer.length;
-      sampleRate = inputBuffer.sampleRate;
-      hit = false;
-      _results = [];
-      for (i = _i = 0; 0 <= channelCount ? _i < channelCount : _i > channelCount; i = 0 <= channelCount ? ++_i : --_i) {
-        samples = inputBuffer.getChannelData(i);
-        sum = 0;
-        powerSum = 0;
-        for (j = _j = 0; 0 <= sampleCount ? _j < sampleCount : _j > sampleCount; j = 0 <= sampleCount ? ++_j : --_j) {
-          sum += samples[j];
-          powerSum += samples[j] * samples[j];
-        }
-        sum /= sampleCount;
-        powerSum = Math.sqrt(powerSum / sampleCount);
-        db = Math.log(powerSum);
-        if (db > -7) {
-          _results.push(hit = true);
-        } else {
-          _results.push(void 0);
-        }
-      }
-      return _results;
-    };
+    ListenClass.prototype.onSamples = null;
 
     return ListenClass;
 

@@ -46,26 +46,6 @@ class ListenClass
     if @onSamples
       @onSamples event
 
-  onSamples: (event) ->
-    inputBuffer = event.inputBuffer
-    channelCount = inputBuffer.numberOfChannels
-    sampleCount = inputBuffer.length
-    sampleRate = inputBuffer.sampleRate
-
-    hit = false;
-    for i in [0...channelCount]
-      samples = inputBuffer.getChannelData i
-
-      sum = 0
-      powerSum = 0
-      for j in [0...sampleCount]
-        sum += samples[j]
-        powerSum += samples[j] * samples[j]
-      sum /= sampleCount
-      powerSum = Math.sqrt powerSum / sampleCount
-
-      db = Math.log powerSum
-      if db > -7
-        hit = true
+  onSamples: null
 
 window.Listen = new ListenClass()
