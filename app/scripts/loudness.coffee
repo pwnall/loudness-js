@@ -3,7 +3,7 @@
 class LoudnessClass
   constructor: ->
     Listen.onSamples = @_onSamples.bind(@)
-    @_lastHit = null
+    @_pace = 0
 
   _onSamples: (event) ->
     inputBuffer = event.inputBuffer
@@ -25,7 +25,9 @@ class LoudnessClass
       10 * Math.log(powerSum)
 
     db = if dbs[0] >= dbs[1] then dbs[0] else dbs[1]
-    Client.updateSensors micpower: db
+    @_pace += 1
+    if @_pace % 3 is 0
+      Client.updateSensors micpower: db
 
 
 chrome.power.requestKeepAwake 'system'

@@ -5,7 +5,7 @@
   LoudnessClass = (function() {
     function LoudnessClass() {
       Listen.onSamples = this._onSamples.bind(this);
-      this._lastHit = null;
+      this._pace = 0;
     }
 
     LoudnessClass.prototype._onSamples = function(event) {
@@ -32,9 +32,12 @@
         return _results;
       })();
       db = dbs[0] >= dbs[1] ? dbs[0] : dbs[1];
-      return Client.updateSensors({
-        micpower: db
-      });
+      this._pace += 1;
+      if (this._pace % 3 === 0) {
+        return Client.updateSensors({
+          micpower: db
+        });
+      }
     };
 
     return LoudnessClass;
